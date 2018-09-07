@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
     def create
         # render plain: params[:article].inspect
         @article = Article.new(article_params)
+        @article.user = User.first
         # @article.save
         # redirect_to article_path(@article)
         if @article.save
@@ -25,7 +26,7 @@ class ArticlesController < ApplicationController
     def destroy
         @article.destroy
         flash[:success] = "Article was successfully deleted"
-        redirect_to article_path
+        redirect_to articles_path
     end
 
     def edit
