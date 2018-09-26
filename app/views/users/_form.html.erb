@@ -1,27 +1,52 @@
-<%= form_with(model: user, local: true) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username %>
+<h1 align="center">Signup for Alpha Blog</h1>
+<%= render 'shared/errors', obj: @user %>
+<div class="row">
+  <div class="col-md-12">
+    <!--    How to add class on form tag-->
+    <%#= form_for (@article, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+    <%= form_for @user do |f| %>
+      <div class="form-group">
+        <%= f.label :username %>
+        <%= f.text_field :username, class: "form-control", placeholder: "Enter username", autofocus: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %>
+        <%= f.password_field :password, class: "form-control", placeholder: "Enter password", autofocus: true %>
+      </div>
+      <p>
+        <%= f.submit "Sign up", class: "btn btn-default" %>
+      </p>
+    <% end %>
   </div>
+</div>
+<%#= form_with(model: user, local: true) do |form| %>
+  <%# if user.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>-->
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+<!--      <ul>-->
+      <%# user.errors.full_messages.each do |message| %>
+<!--        <li><%#= message %></li>-->
+      <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<!--  <div class="field">-->
+    <%#= form.label :username %>
+    <%#= form.text_field :username %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :email %>
+    <%#= form.text_field :email %>
+<!--  </div>-->
+
+<!--  <div class="actions">-->
+    <%#= form.submit %>
+<!--  </div>-->
+<%# end %>
