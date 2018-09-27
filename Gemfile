@@ -7,6 +7,10 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.1'
 # Use bcrypt for password hash
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+
+# Add pagination
+gem 'will_paginate', '3.1.5'
+gem 'bootstrap-will_paginate', '1.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
